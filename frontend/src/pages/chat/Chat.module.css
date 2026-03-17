@@ -8,10 +8,7 @@
 .chatRoot {
   flex: 1;
   display: flex;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0;
   gap: 5px;
 }
 
@@ -20,13 +17,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: radial-gradient(108.78% 108.78% at 50.02% 19.78%, #ffffff 57.29%, #eef6fe 100%);
-  box-shadow:
-    0px 2px 4px rgba(0, 0, 0, 0.14),
-    0px 0px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 8px;
+  background: #ffffff;
   overflow-y: auto;
-  max-height: calc(100vh - 100px);
+  max-height: 100vh;
 }
 
 .chatEmptyState {
@@ -35,6 +28,60 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.welcomeTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #242424;
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+.welcomeSubtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: #424242;
+  text-align: center;
+  max-width: 480px;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+.comingSoonBadge {
+  font-size: 13px;
+  color: #0d6b3a;
+  background-color: #e6f4ec;
+  border: 1px solid #a8d5b9;
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.topicButtonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 560px;
+}
+
+.topicButton {
+  background: #ffffff;
+  border: 1px solid #d1d1d1;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #242424;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.topicButton:hover {
+  background: #f5f5f5;
+  border-color: #999;
 }
 
 .chatEmptyStateTitle {
@@ -146,7 +193,7 @@
   padding-right: 24px;
   width: calc(100% - 100px);
   max-width: 1028px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   margin-top: 8px;
 }
 
@@ -253,7 +300,7 @@
   flex-grow: 0.3;
   max-width: 30%;
   overflow-y: scroll;
-  max-height: calc(100vh - 100px);
+  max-height: 100vh;
 }
 
 .citationPanelHeaderContainer {

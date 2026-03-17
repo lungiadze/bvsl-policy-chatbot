@@ -791,9 +791,27 @@ const Chat = () => {
           <div className={styles.chatContainer}>
             {!messages || messages.length < 1 ? (
               <Stack className={styles.chatEmptyState}>
-                <img src={logo} className={styles.chatIcon} aria-hidden="true" />
-                <h1 className={styles.chatEmptyStateTitle}>{ui?.chat_title}</h1>
-                <h2 className={styles.chatEmptyStateSubtitle}>{ui?.chat_description}</h2>
+                <h1 className={styles.welcomeTitle}>How can we help you?</h1>
+                <p className={styles.welcomeSubtitle}>
+                  Ask me anything about Brightview's policy documents, associate handbook, or how to navigate your Power BI reports.
+                </p>
+                <div className={styles.comingSoonBadge}>
+                  Coming soon: ask questions directly about your Power BI reports
+                </div>
+                <div className={styles.topicButtonsContainer}>
+                  {['Associate handbook', 'HR policies', 'Power BI navigation', 'Policy documents'].map(topic => (
+                    <button
+                      key={topic}
+                      className={styles.topicButton}
+                      onClick={() =>
+                        appStateContext?.state.isCosmosDBAvailable?.cosmosDB
+                          ? makeApiRequestWithCosmosDB(topic)
+                          : makeApiRequestWithoutCosmosDB(topic)
+                      }>
+                      {topic}
+                    </button>
+                  ))}
+                </div>
               </Stack>
             ) : (
               <div className={styles.chatMessageStream} style={{ marginBottom: isLoading ? '40px' : '0px' }} role="log">
